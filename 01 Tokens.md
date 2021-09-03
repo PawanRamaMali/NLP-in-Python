@@ -63,3 +63,10 @@ For the BERT transformer model there are five special tokens that are used by th
 | [MASK]	| Used when masking tokens, for example in training with masked language modelling (MLM)|
 
 
+So if we take the 'NLP models' tweet, processing that directly with our BERT specific tokens might look like this:
+```
+['[CLS]', '[UNK]', 'thinks', 'that', 'the', 'nlp', 'models', 'that', '[UNK]', 'made', 'are', 'super', 'cool', '[SEP]', '[PAD]', '[PAD]', ..., '[PAD]']
+```
+
+
+
