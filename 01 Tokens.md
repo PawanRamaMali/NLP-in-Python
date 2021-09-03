@@ -19,3 +19,8 @@ Both impressed, and a little disappointed how rarely I get to actually train a m
 tweet.split()
 ```
 This is the rawest form of word-level tokens, the alternative to word-level is character-level, which looks like this:
+
+```py
+
+[char for char in tweet][:10]
+```
