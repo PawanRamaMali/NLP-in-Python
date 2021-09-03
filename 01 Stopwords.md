@@ -12,3 +12,10 @@ Both impressed, and a little disappointed how rarely I get to actually train a m
 
 We will be using the NLTK library for removing stopwords. NLTK comes with several stopword corpora, we will be using the English corpus. This corpus contains a huge number of English stopwords like a, the, be, for, do, and so on.
 
+```py
+from nltk.corpus import stopwords
+
+stop_words = stopwords.words('english')
+
+stop_words[:5]
+```
