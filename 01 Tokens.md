@@ -68,5 +68,13 @@ So if we take the 'NLP models' tweet, processing that directly with our BERT spe
 ['[CLS]', '[UNK]', 'thinks', 'that', 'the', 'nlp', 'models', 'that', '[UNK]', 'made', 'are', 'super', 'cool', '[SEP]', '[PAD]', '[PAD]', ..., '[PAD]']
 ```
 
+Here, we have:
 
+* Applied [CLS] token to indicate the start of the sequence.
+* Both username tokens @elonmusk and @joebloggs were not 'known' words to BERT so BERT replaced them with unknown tokens [UNK], alternatively we could have replaced these with our own special user tokens.
+* Added *[SEP] token to the end of our sequence.
+* Padded the sequence upto the required length of 512 tokens (required due to fixed input sequence length of BERT model) using [PAD] tokens.
+Different models will have different special tokens, but we will often that they are being used for similiar reasons.
+
+That's everything on tokens for now, although we will cover tokenization in more depth (and the code too) for different models in later notebooks.
 
