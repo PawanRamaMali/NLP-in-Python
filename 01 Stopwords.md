@@ -1,8 +1,9 @@
 # Stopwords
 
-TK add explanation of stopwords, + examples + some sample code + code we would actually use (eg NLTK)
+Stop words are any word in a stop list which are filtered out before or after processing of natural language data. 
+There is no single universal list of stop words used by all natural language processing tools, nor any agreed upon rules for identifying stop words, and indeed not all tools even use such a list.
 
-We will be using this tweet (don't worry, we will get to train some models):
+We will be using this tweet example:
 
 ```py
 tweet = """I’m amazed how often in practice, not only does a @huggingface NLP model solve your problem, but one of their public finetuned checkpoints, is good enough for the job.
