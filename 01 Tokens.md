@@ -53,3 +53,13 @@ But ofcourse we don't always want to do this for everything, this is simply a ro
 Finally, we also need to understand model-specific special tokens. We will do this with an example.
 
 For the BERT transformer model there are five special tokens that are used by the model, these are:
+
+| Token	  | Meaning|
+|---------|---------|
+| [PAD]	  | Padding token, allows us to maintain same-length sequences (512 tokens for Bert) even when different sized sentences are fed in|
+| [UNK]	  | Used when a word is unknown to Bert|
+| [CLS]	  | Appears at the start of every sequence|
+| [SEP]	  | Indicates a seperator or end of sequence|
+| [MASK]	| Used when masking tokens, for example in training with masked language modelling (MLM)|
+
+
