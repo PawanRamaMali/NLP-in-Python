@@ -24,3 +24,32 @@ This is the rawest form of word-level tokens, the alternative to word-level is c
 
 [char for char in tweet][:10]
 ```
+The 'advantage' of using character-level embeddings is that any models we train on this data will only need to remember all of the characters of the alphabet, punctuation characters, and spaces/newlines. So the model vocabulary (list of all the tokens it knows) is very small. Additionally if a new word appears outside of training, the model will still be able to digest it - whereas a word-level embedding model would not understand the new word and replace it with an unknown token (more on this soon).
+
+It's not all good news for character-level embeddings though. Words carry a significant level of semantic meaning, and when we use character-level embedding this is mostly lost. At a high-level we can view character-level embedding as being good for syntax, and word-level embedding as being better for semantics. Although, in-reality, word-level embeddings almost always outpeform character-level embeddings.
+
+Back to word-level embeddings, we will often find with the latest transformer models that text can be split into part-word tokens. So for example, we may find that the word 'being' is split into the tokens ["be", "-ing"], or 'amazingly' to ["amaz", "-ing", "-ly"].
+
+In addition to this, we typically seperate punctuation too, so in our previous example the tokens '@huggingface' and 'impressed,' would become ["@", "huggingface"] and ["impressed", ","] respectively.
+
+In our tweet we might want to find any token that begins with @ and convert that token to \<USER>, a unique token that we have specified to identify usernames in our tweets. This rule is logical as there are potentially millions of added tokens in our model if we include Twitter usernames, but the username doesn't tell our model anything about the meaning in the language of the text, for example:
+
+@elonmusk thinks that the NLP models that @joebloggs made are super cool
+
+Has no real meaningful difference to our model as with:
+
+@joebloggs thinks that the NLP models that @huggingface made are super cool
+
+The meaning and subsequent classification of both tweets should really be identical in our model. So, it is logical to replace usernames with a single shared token. This approach is something that is commonly used for many different things such as:
+
+* emails
+* names/usernames
+* URLs
+* monetary values
+* or any other numbers
+
+But ofcourse we don't always want to do this for everything, this is simply a rough guide as to what we may want to tokenize.
+
+Finally, we also need to understand model-specific special tokens. We will do this with an example.
+
+For the BERT transformer model there are five special tokens that are used by the model, these are:
